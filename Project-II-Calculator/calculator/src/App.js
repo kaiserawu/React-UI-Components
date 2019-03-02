@@ -9,10 +9,17 @@ const numbers = [7, 8, 9, 4, 5, 6, 1, 2, 3];
 const symbols = ['÷', '×', '-', '+', '='];
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            total: 0
+        }
+    }
+
     render() {
         return (
             <div className="App">
-                <CalculatorDisplay className="display" text='0'/>
+                <CalculatorDisplay className="display" text={this.state.total.toString()}/>
                 <div className="buttons">
                     <div className="numbersAndClear">
                         <ActionButton buttonStyle="longButton" text='clear'/>
