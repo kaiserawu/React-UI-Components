@@ -1,23 +1,38 @@
 import React from 'react';
 import './App.css';
 
-const App = () => {
-  return (
-    <div>
-      <h3>Welcome to React Calculator</h3>
-      <p>
-        We have given you a starter project. You'll want to build out your
-        components in their respective files, remove this code and replace it
-        with the proper components.
-      </p>
-      <p>
-        <strong>
-          Don't forget to `default export` your components and import them here
-          inside of this file in order to make them work.
-        </strong>
-      </p>
-    </div>
-  );
-};
+import ActionButton from './components/ButtonComponents/ActionButton';
+import NumberButton from './components/ButtonComponents/NumberButton';
+import CalculatorDisplay from './components/DisplayComponents/CalculatorDisplay';
+
+const numbers = [7, 8, 9, 4, 5, 6, 1, 2, 3];
+const symbols = ['÷', '×', '-', '+', '='];
+
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            total: 0
+        }
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <CalculatorDisplay className="display" text={this.state.total.toString()}/>
+                <div className="buttons">
+                    <div className="numbersAndClear">
+                        <ActionButton buttonStyle="longButton" text='clear'/>
+                        {numbers.map(number => <NumberButton key={number.toString()} buttonStyle='numberButton' text={number.toString()} />)}
+                        <NumberButton buttonStyle='numberButtonZero' text='0' />
+                    </div>
+                    <div className="symbolButtonSet">
+                        {symbols.map(symbol => <ActionButton key={symbol} buttonStyle='symbolButton' text={symbol} />)}
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
 
 export default App;

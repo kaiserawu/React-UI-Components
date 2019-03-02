@@ -1,0 +1,21 @@
+.App {
+    box-sizing: border-box;
+    border: 1px solid grey;
+    width: 455px;
+    height: 600px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.numbersAndClear {
+    width: 75%;
+    height: 470px;
+    border: 1px solid grey;
+}
+
+.symbolButtonSet {
+    width: 25%;
+    border: 1px solid grey;
+}
